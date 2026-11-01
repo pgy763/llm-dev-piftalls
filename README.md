@@ -1,6 +1,6 @@
 # LLM 应用开发踩坑手册
 
-![pitfalls](https://img.shields.io/badge/收录踩坑-40_条-blue)
+![pitfalls](https://img.shields.io/badge/收录踩坑-51_条-blue)
 ![java](https://img.shields.io/badge/主攻-Java_接大模型-orange)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![lang](https://img.shields.io/badge/语言-中文-red)
@@ -50,9 +50,9 @@
 
 ## 索引
 
-共 **40 条**：Java 生态 16 条（持续补充），其余 24 条是早期 LangChain / Python 阶段踩下的。
+共 **51 条**：Java 生态 24 条（持续补充），其余 27 条是早期 LangChain / Python 阶段踩下的。
 
-### Java 与框架集成 `docs/java` · 16 条 🔥 当前主攻
+### Java 与框架集成 `docs/java` · 24 条 🔥 当前主攻
 
 | 报错关键词 | 一句话原因 | 文件 |
 | --- | --- | --- |
@@ -72,8 +72,16 @@
 | `413 Request Entity Too Large` · `MaxUploadSizeExceededException` | Nginx 与 Spring 各有一个 1 MB 上传默认值，先撞谁看部署 | [看 →](docs/java/上传文档报413.md) |
 | `NoSuchBeanDefinitionException` 里出现 `ChatClient` | Spring AI 只自动配置 `ChatClient.Builder`，`ChatClient` 得自己声明 | [看 →](docs/java/注入ChatClient找不到Bean.md) |
 | 回答里出现别人的提问（不报错） · `@MemoryId` | 单例 `Assistant` 共用一份 `ChatMemory`，所有用户挤同一个窗口 | [看 →](docs/java/多用户共用一份ChatMemory.md) |
+| `DataBufferLimitException: Exceeded limit on max bytes to buffer` | 用 `bodyToMono` 接流式，默认 256 KB 聚合上限 | [看 →](docs/java/WebClient缓冲超限.md) |
+| `TimeoutException: Did not observe any item or terminal signal` | `timeout()` 是「字间间隔」不是「总时长」，长回答被误杀 | [看 →](docs/java/Reactor超时截断流式.md) |
+| `JsonParseException: Unexpected character (code 60)` | 上游 502 返回 HTML 错误页，被当成 JSON 解析 | [看 →](docs/java/网关返回HTML被当JSON解析.md) |
+| `AsyncRequestNotUsableException: ServletOutputStream failed to write` | 用户关了页面，服务端还在往已关闭的流里写 | [看 →](docs/java/客户端断开后还在写SSE.md) |
+| `CannotGetJdbcConnectionException` · 连接池耗尽 | `@Transactional` 里调模型，连接被占几十秒 | [看 →](docs/java/事务里调模型拖垮连接池.md) |
+| `OutOfMemoryError: Java heap space` | 把流式响应 `collectList` 成整段，并发一上来就爆 | [看 →](docs/java/收集流式响应导致OOM.md) |
+| 流式中文乱码（不报错） | `text/event-stream` 少了 charset，或 `new String(bytes)` 用了平台编码 | [看 →](docs/java/SSE响应中文乱码.md) |
+| `SSLHandshakeException: PKIX path building failed` | 公司 SSL 拦截，JVM 信任库里没有公司根证书 | [看 →](docs/java/公司代理导致SSL握手失败.md) |
 
-### 密钥与鉴权 `docs/auth` · 5 条
+### 密钥与鉴权 `docs/auth` · 7 条
 
 | 报错关键词 | 一句话原因 | 文件 |
 | --- | --- | --- |
@@ -82,8 +90,10 @@
 | `503 分组 default 下无可用渠道` | 中转站的分组里没有这个模型的渠道 | [看 →](docs/auth/中转站没有可用渠道.md) |
 | `429 Rate limit reached` | 循环调用超过套餐 RPM / TPM 上限 | [看 →](docs/auth/429限流.md) |
 | 🔴 `git log -S "sk-"` 有输出 | 密钥进了 git 历史，删掉当前代码也没用 | [看 →](docs/auth/密钥提交进了git历史.md) |
+| `401 invalid_api_key` vs `401 insufficient_quota` | 一个是 key 错，一个是余额没了，处理人完全不同 | [看 →](docs/auth/401有两种key错和钱没了.md) |
+| 状态码 200，body 是 `<!DOCTYPE html>` | 中转站把请求导到了登录页/首页 | [看 →](docs/auth/中转站返回登录页.md) |
 
-### 接口与模型 `docs/endpoint` · 4 条
+### 接口与模型 `docs/endpoint` · 5 条
 
 | 报错关键词 | 一句话原因 | 文件 |
 | --- | --- | --- |
@@ -91,6 +101,7 @@
 | `model_not_found` | 模型名少了版本后缀，或该账号无权限 | [看 →](docs/endpoint/模型名不存在.md) |
 | `maximum context length is xxx tokens` | 对话历史不裁剪，或 RAG 检索结果塞太多 | [看 →](docs/endpoint/上下文超长.md) |
 | 请求卡住 600 秒才超时 | SDK 默认超时太长，用户干等十分钟 | [看 →](docs/endpoint/请求挂死超时太长.md) |
+| `400 messages with role 'tool' must be a response to a preceding message` | 截断历史时把 `tool_calls` 砍了，留下孤立的 `tool` 消息 | [看 →](docs/endpoint/工具消息顺序错.md) |
 
 ### 环境与编码 `docs/env` · 5 条
 
