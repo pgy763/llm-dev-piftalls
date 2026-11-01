@@ -1,5 +1,9 @@
 # `NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.ai.chat.client.ChatClient'`
 
+![报错原文](/images/java-chatclient-bean.png)
+
+> 上图按本条「报错」原文渲染，文本逐字一致 —— 可以直接拿去和你的日志比对。
+
 ## 报错
 
 启动阶段的典型形状（Spring Boot 的失败分析器会替你改写成中文式的大白话）：

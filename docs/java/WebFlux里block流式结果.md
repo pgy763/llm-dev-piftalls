@@ -1,5 +1,9 @@
 # WebFlux 里对 `Flux` 调 `block()`，直接抛异常
 
+![报错原文](/images/java-illegalstateexception.png)
+
+> 上图按本条「报错」原文渲染，文本逐字一致 —— 可以直接拿去和你的日志比对。
+
 ## 现象
 
 ```
