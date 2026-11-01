@@ -1,6 +1,6 @@
 # 密钥提交进了 git 历史
 
-![报错截图](../../images/api-key-in-git-history.png)
+![报错截图](/images/api-key-in-git-history.png)
 
 ## 现象
 

@@ -19,3 +19,9 @@ Thumbs.db
 
 # 截图脚本的临时输出
 .tools/_tmp/
+
+# 站点构建
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+docs/.vitepress/.temp/

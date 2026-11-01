@@ -1,6 +1,6 @@
 # 请求返回 `404`，但 URL 看着完全正确
 
-![报错截图](../../images/base-url-404.png)
+![报错截图](/images/base-url-404.png)
 
 ## 报错
 

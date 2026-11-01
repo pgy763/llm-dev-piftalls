@@ -1,6 +1,6 @@
 # `OpenAIError: The api_key client option must be set`
 
-![报错截图](../../images/api-key-not-set.png)
+![报错截图](/images/api-key-not-set.png)
 
 ## 报错
 

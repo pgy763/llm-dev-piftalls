@@ -1,6 +1,6 @@
 # `Chroma requires sqlite3 >= 3.35.0` —— 装了 Chroma 却 import 就炸
 
-![报错截图](../../images/chroma-sqlite-version.png)
+![报错截图](/images/chroma-sqlite-version.png)
 
 ## 报错
 

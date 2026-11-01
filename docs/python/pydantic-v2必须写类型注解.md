@@ -1,6 +1,6 @@
 # `PydanticUserError: Field 'description' defined on a base class was overridden by a non-annotated attribute`
 
-![报错截图](../../images/pydantic-v2-annotation.png)
+![报错截图](/images/pydantic-v2-annotation.png)
 
 ## 报错
 

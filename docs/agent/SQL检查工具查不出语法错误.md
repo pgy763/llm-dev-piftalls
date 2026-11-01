@@ -1,6 +1,6 @@
 # 关键词检查「通过」了，SQL 执行却报语法错
 
-![报错截图](../../images/sql-check-miss.png)
+![报错截图](/images/sql-check-miss.png)
 
 ## 现象
 

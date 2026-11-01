@@ -1,6 +1,6 @@
 # Agent 陷入无限循环，烧光 token 也拿不到答案
 
-![报错截图](../../images/agent-infinite-loop.png)
+![报错截图](/images/agent-infinite-loop.png)
 
 ## 现象
 

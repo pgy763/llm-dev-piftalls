@@ -7,11 +7,13 @@
 
 > 你在深夜遇到的那些报错，这里可能都记着。
 
+👉 **[在线阅读（带搜索）](https://pgy763.github.io/llm-dev-pitfalls/)** —— 粘贴报错关键词就能筛，比在 GitHub 里翻文件快。
+
 **Java 后端接大模型**时踩过的坑，**按报错关键词索引，不按学习顺序**。
 
 主攻 **Spring AI / LangChain4j / Spring Boot 3**，与 [hello-ai-backend](https://github.com/pgy763/hello-ai-backend)（写给 Java 后端工程师的 AI 接入手册）配套。也收录 LangChain（Python）的坑 —— 那是更早期踩下的，依然有效。
 
-不用从头读 —— 把报错信息复制进来，`Ctrl+F` 搜一下就行。
+不用从头读 —— 把报错信息复制进来，[在线搜](https://pgy763.github.io/llm-dev-pitfalls/all) 或 `Ctrl+F` 搜一下就行。
 
 ![示例：早期 LangChain 条目的报错截图](images/pydantic-v2-annotation.png)
 

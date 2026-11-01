@@ -1,0 +1,15 @@
+{
+  "name": "llm-dev-pitfalls",
+  "private": true,
+  "type": "module",
+  "description": "LLM 应用开发踩坑手册 —— 可搜索站点",
+  "scripts": {
+    "gen": "node scripts/gen-index.mjs",
+    "docs:dev": "npm run gen && vitepress dev docs",
+    "docs:build": "npm run gen && vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4"
+  }
+}
