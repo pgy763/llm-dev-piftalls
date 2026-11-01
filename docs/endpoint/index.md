@@ -4,12 +4,13 @@ title: 接口与模型
 
 # 接口与模型
 
-base_url、模型名、上下文、超时 —— 共 **4** 条。
+base_url、模型名、上下文、超时 —— 共 **5** 条。
 
 > 不用从头读。把报错里最独特的那个词拿去搜，或者对着下面这张表扫一眼。
 
 | 报错关键词 | 一句话原因 | 文件 |
 | --- | --- | --- |
+| `400 Invalid parameter: messages with role 'tool' must be a response to a precedi` | 工具调用的消息序列有严格的结构要求，不是随便往里塞： 两条硬规则： 1. tool 消息必须紧跟在带 tool_calls 的 assistant 消息之后，中间不能插别的东西 2. 每个 tool_call_id 都必须有对应的 tool 消息；并行调用 N 个工具，就要回 N 条 最常见的破坏方式是：把历史消息截断时按条数砍，一刀切掉了 tool_calls… | [看 →](./%E5%B7%A5%E5%85%B7%E6%B6%88%E6%81%AF%E9%A1%BA%E5%BA%8F%E9%94%99) |
 | `openai.NotFoundError: Error code: 404 -` | 文档上的模型名通常是「别名」，而别名会随版本更新变化 | [看 →](./%E6%A8%A1%E5%9E%8B%E5%90%8D%E4%B8%8D%E5%AD%98%E5%9C%A8) |
 | `$ time python src/agent/text_to_sql_agent.py` | OpenAI SDK 的默认超时是 600 秒（10 分钟） | [看 →](./%E8%AF%B7%E6%B1%82%E6%8C%82%E6%AD%BB%E8%B6%85%E6%97%B6%E5%A4%AA%E9%95%BF) |
 | `openai.BadRequestError: Error code: 400 - {'error':` | 每个模型都有一个上下文窗口上限，指的是「输入 + 输出」加起来的 token 总数： 模型 常见窗口 --- --- gpt-4o-mini 128K qwen-plus 128K 部分开源模型本地部署 8K / 16K / 32K 超了就直接 400，不是截断… | [看 →](./%E4%B8%8A%E4%B8%8B%E6%96%87%E8%B6%85%E9%95%BF) |

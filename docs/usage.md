@@ -39,6 +39,11 @@
 | 报错里出现 `AsyncRequestTimeoutException` | 连接已被超时关掉，还在往里写 → [SSE连接30秒断开](/java/SSE连接30秒断开) |
 | 报错里出现 `block()/blockFirst()/blockLast() are blocking` | 在 Reactor 非阻塞线程上调了 `block()` → [WebFlux里block流式结果](/java/WebFlux里block流式结果) |
 | WebFlux 服务并发一高整体卡住、健康检查也超时 | IO 线程里做了阻塞调用 → [WebFlux里block流式结果](/java/WebFlux里block流式结果) |
+| 流式回答固定 30 秒断 / 到一半没了 | 超时语义搞错 → [Reactor 超时截断流式](/java/Reactor超时截断流式) |
+| 流式英文正常、中文乱码 | charset 或平台编码 → [SSE 响应中文乱码](/java/SSE响应中文乱码) |
+| 服务变慢后数据库连不上 | 事务里调模型 → [事务里调模型拖垮连接池](/java/事务里调模型拖垮连接池) |
+| 拿到 `<!DOCTYPE html>` 或 200 但不是 JSON | 网关/中转站 → [网关返回 HTML](/java/网关返回HTML被当JSON解析) |
+| 类加载报 `PKIX path building failed` | 证书 → [公司代理导致 SSL 握手失败](/java/公司代理导致SSL握手失败) |
 | 报错里出现 `401` / `403` | 密钥或鉴权 → [密钥与鉴权](/auth/) |
 | 报错里出现 `404` | `base_url` 或模型名 → [接口与模型](/endpoint/) |
 | 报错里出现 `429` | 限流 → [429限流](/auth/429限流) |

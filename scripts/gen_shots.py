@@ -112,6 +112,7 @@ OVERRIDES = {
     "Nginx缓冲导致流式失效.md": "nginx-buffering",
     "多用户共用一份ChatMemory.md": "chatmemory-shared",
     "注入ChatClient找不到Bean.md": "chatclient-bean",
+    "SSE响应中文乱码.md": "sse-charset",
 }
 
 def wrap(line: str, font: ImageFont.FreeTypeFont, max_px: int) -> list[str]:

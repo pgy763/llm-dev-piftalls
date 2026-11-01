@@ -20,6 +20,7 @@ OVERRIDES = {
     "Nginx缓冲导致流式失效.md": "nginx-buffering",
     "多用户共用一份ChatMemory.md": "chatmemory-shared",
     "注入ChatClient找不到Bean.md": "chatclient-bean",
+    "SSE响应中文乱码.md": "sse-charset",
 }
 
 CAPTION = "> 上图按本条「报错」原文渲染，文本逐字一致 —— 可以直接拿去和你的日志比对。"
