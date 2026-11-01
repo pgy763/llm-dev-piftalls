@@ -1,5 +1,9 @@
 # `UnsupportedClassVersionError: class file version 61.0`
 
+![报错原文](/images/java-unsupportedclassversionerror.png)
+
+> 上图按本条「报错」原文渲染，文本逐字一致 —— 可以直接拿去和你的日志比对。
+
 ## 报错
 
 ```

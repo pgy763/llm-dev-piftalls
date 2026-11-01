@@ -1,5 +1,9 @@
 # `UnrecognizedPropertyException: Unrecognized field "usage", not marked as ignorable`
 
+![报错原文](/images/java-unrecognizedpropertyexception.png)
+
+> 上图按本条「报错」原文渲染，文本逐字一致 —— 可以直接拿去和你的日志比对。
+
 ## 报错
 
 ```

@@ -1,5 +1,9 @@
 # `SLF4J: Class path contains multiple SLF4J bindings.`
 
+![报错原文](/images/java-slf4j.png)
+
+> 上图按本条「报错」原文渲染，文本逐字一致 —— 可以直接拿去和你的日志比对。
+
 ## 报错
 
 SLF4J 1.7 线（`StaticLoggerBinder` 时代）大概是这个形状：
