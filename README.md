@@ -9,6 +9,8 @@
 
 👉 **[在线阅读（带搜索）](https://pgy763.github.io/llm-dev-pitfalls/)** —— 粘贴报错关键词就能筛，比在 GitHub 里翻文件快。
 
+> 配套：[接入手册](https://pgy763.github.io/hello-ai-backend/)（怎么把 AI 接进 Spring Boot）、[shopkeeper-agent](https://github.com/pgy763/shopkeeper-agent)（完整的 NL2SQL 项目）。总入口：[pgy763.github.io](https://pgy763.github.io/)
+
 **Java 后端接大模型**时踩过的坑，**按报错关键词索引，不按学习顺序**。
 
 主攻 **Spring AI / LangChain4j / Spring Boot 3**，与 [hello-ai-backend](https://github.com/pgy763/hello-ai-backend)（写给 Java 后端工程师的 AI 接入手册）配套。也收录 LangChain（Python）的坑 —— 那是更早期踩下的，依然有效。
