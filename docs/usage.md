@@ -106,7 +106,7 @@ cd cases && mvn -B test
 
 ## 想让它自动检查
 
-十条最贵的坑（事务里调模型、单例 ChatMemory、直接注入 ChatClient、SSE 没设超时、流式里 block、`text/event-stream` 缺 charset、`maxTokens` 太小、空 catch 吞 IO、HTTP 客户端没配超时、硬编码密钥）做成了一个 CLI：[llm-lint](https://github.com/pgy763/llm-lint)。
+十五条最贵的坑做成了一个 CLI：[llm-lint](https://github.com/pgy763/llm-lint) —— 上面十条，加上「每次请求都新建 ChatClient」「LangChain4j 每次请求都新建 AiServices」「循环里逐个调模型/向量库」「ChatMemoryProvider 写死 id」「事务方法返回 Flux/Mono」。
 
 ```bash
 java -jar llm-lint.jar src/main/java
@@ -120,7 +120,7 @@ java -jar llm-lint.jar src/main/java
     fail-on: error
 ```
 
-规则编号（`LLM001`–`LLM010`）在输出里会直接链回本手册的对应条目。误报可以 `--disable LLM009` 关掉单条 —— 它宁可漏报也不乱报，类型判断不准的地方直接跳过。
+规则编号（`LLM001`–`LLM015`）在输出里会直接链回本手册的对应条目或工具仓库的规则说明。误报可以在那一行上面加 `// llm-lint:ignore LLM009` 压掉，也可以整条 `--disable LLM009` —— 它宁可漏报也不乱报，类型判断不准的地方直接跳过。要接进 GitHub 的 code scanning，`java -jar llm-lint.jar --format sarif src/main/java > llm-lint.sarif` 再交给 `upload-sarif` 即可。
 
 ## 贡献
 
