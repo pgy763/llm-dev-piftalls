@@ -104,6 +104,24 @@ cd cases && mvn -B test
 
 每条坑一个测试类，`复现()` 断言错误行为会发生，`对照()` 断言改法有效。说明见仓库里的 `cases/README.md`。
 
+## 想让它自动检查
+
+十条最贵的坑（事务里调模型、单例 ChatMemory、直接注入 ChatClient、SSE 没设超时、流式里 block、`text/event-stream` 缺 charset、`maxTokens` 太小、空 catch 吞 IO、HTTP 客户端没配超时、硬编码密钥）做成了一个 CLI：[llm-lint](https://github.com/pgy763/llm-lint)。
+
+```bash
+java -jar llm-lint.jar src/main/java
+```
+
+它不联网、不要 key、不需要 classpath，纯静态扫源码。接进 GitHub Actions 只要一行：
+
+```yaml
+- uses: pgy763/llm-lint@v1
+  with:
+    fail-on: error
+```
+
+规则编号（`LLM001`–`LLM010`）在输出里会直接链回本手册的对应条目。误报可以 `--disable LLM009` 关掉单条 —— 它宁可漏报也不乱报，类型判断不准的地方直接跳过。
+
 ## 贡献
 
 见 [CONTRIBUTING.md](https://github.com/pgy763/llm-dev-pitfalls/blob/main/CONTRIBUTING.md)。
