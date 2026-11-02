@@ -177,6 +177,8 @@ es.onmessage = e => append(e.data);
 
 **五、重连要有幂等键。** 同一个 `requestId` 重连，服务端应该识别出「这是同一次生成」，返回同一份结果，而不是再调一次模型。
 
+> 这行代码很容易机器识别：`llm-lint` 的 [LLM004](https://github.com/pgy763/llm-lint/blob/main/docs/rules.md#llm004) 找没有超时的 `new SseEmitter()`，`--explain LLM004` 会给出改法和原因。
+
 ## 环境
 
 | 组件 | 版本 |
