@@ -11,6 +11,8 @@
 
 > 配套：[接入手册](https://pgy763.github.io/hello-ai-backend/)（怎么把 AI 接进 Spring Boot）、[shopkeeper-agent](https://github.com/pgy763/shopkeeper-agent)（完整的 NL2SQL 项目）。总入口：[pgy763.github.io](https://pgy763.github.io/)
 
+> 不想等踩了再查？其中十条最贵的做成了 CLI：[llm-lint](https://github.com/pgy763/llm-lint) —— `java -jar llm-lint.jar src/main/java`，能在 commit 之前拦住。
+
 **Java 后端接大模型**时踩过的坑，**按报错关键词索引，不按学习顺序**。
 
 主攻 **Spring AI / LangChain4j / Spring Boot 3**，与 [hello-ai-backend](https://github.com/pgy763/hello-ai-backend)（写给 Java 后端工程师的 AI 接入手册）配套。也收录 LangChain（Python）的坑 —— 那是更早期踩下的，依然有效。
@@ -35,6 +37,7 @@
 | **标了环境版本** | 大部分坑的根因是版本差异。不标版本的坑等于没写 |
 | **配报错图** | 不用读文字，扫一眼图就知道是不是同一个错。早期 24 条是真机截图；Java 16 条是按报错原文渲染的终端图，文本逐字一致 |
 | **能跑起来** | 十条高频坑各配了一个可运行测试：`cd cases && mvn test`，十秒跑完，不联网、不要 key。见 [cases](./cases/README.md) |
+| **能拦住** | 其中十条最贵的做成了独立 CLI：[llm-lint](https://github.com/pgy763/llm-lint)。一条 `uses: pgy763/llm-lint@v1` 接进流水线，有问题的行会直接标在 diff 上 |
 
 ## 怎么用
 
