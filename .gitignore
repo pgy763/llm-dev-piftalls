@@ -20,6 +20,9 @@ Thumbs.db
 # 截图脚本的临时输出
 .tools/_tmp/
 
+# 复现用例的 Maven 构建产物
+cases/target/
+
 # 站点构建
 node_modules/
 docs/.vitepress/dist/

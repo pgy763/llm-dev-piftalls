@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.pgy.pitfalls</groupId>
+  <artifactId>pitfall-cases</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>pitfall-cases</name>
+  <description>踩坑手册的可运行复现：每条坑一个测试，不联网、不调真实模型</description>
+
+  <properties>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <junit.version>5.11.4</junit.version>
+  </properties>
+
+  <dependencies>
+    <!-- 只跑测试，不需要 spring-boot-starter：这些坑和框架无关 -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JSON：工具调用参数被截断、网关返回 HTML 这两条要用 -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.18.2</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- 连接池那条：真起一个 HikariCP，不连 MySQL -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>6.2.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>2.3.232</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.2</version>
+        <configuration>
+          <!-- 中文断言消息/输出在 Windows 控制台会乱码，这里统一 UTF-8 -->
+          <argLine>-Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8</argLine>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

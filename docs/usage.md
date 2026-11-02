@@ -94,6 +94,16 @@
 > Spring AI 与 LangChain4j 都还在快速迭代，版本号以官方最新文档为准 —— 这里只标大版本。
 > **同样的坑在不同版本上表现可能不同。** 你在别的版本上遇到不一样的报错，欢迎开 Issue 补充。
 
+## 想亲手复现一条
+
+十条高频坑配了可运行测试，不联网、不需要 API key：
+
+```bash
+cd cases && mvn -B test
+```
+
+每条坑一个测试类，`复现()` 断言错误行为会发生，`对照()` 断言改法有效。说明见仓库里的 `cases/README.md`。
+
 ## 贡献
 
 见 [CONTRIBUTING.md](https://github.com/pgy763/llm-dev-pitfalls/blob/main/CONTRIBUTING.md)。
