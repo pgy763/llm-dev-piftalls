@@ -137,6 +137,8 @@ class AiWiringTest {
 
 **第四条：starter 坐标别散落在多个 pom 里。** artifact 名变过一次（0.8 → 1.0），散落多处的坐标升级时必漏一个，漏的那个通常就是启动报 `NoSuchBeanDefinitionException` 的那个。
 
+> `llm-lint` 的 [LLM003](https://github.com/pgy763/llm-lint/blob/main/docs/rules.md#llm003) 专门认这个：直接构造或注入 `ChatClient` 却没给 Bean，能在 commit 之前就报出来。
+
 ## 环境
 
 | 组件 | 版本 |

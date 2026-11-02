@@ -127,6 +127,8 @@ static void init() {
 
 **第五条：压测时看的是并发，不是单请求。** 单发一个请求，`block()` 只是慢；发 20 个并发，才能看出整个服务卡住。
 
+> `llm-lint` 的 [LLM005](https://github.com/pgy763/llm-lint/blob/main/docs/rules.md#llm005) 会标出流式方法里的阻塞调用（`.block()`、`.join()`、`Thread.sleep`），不用等到线程池被占满才发现。
+
 ## 环境
 
 | 组件 | 版本 |

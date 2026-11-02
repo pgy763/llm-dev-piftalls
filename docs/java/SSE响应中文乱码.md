@@ -88,6 +88,8 @@ curl -N -H "Accept: text/event-stream" http://localhost:8080/api/stream | head -
 - 无参 `new String(bytes)` / `getBytes()` 当成 lint 错误
 - 上线前用中文做一次端到端冒烟（很多团队只在本地测英文用例）
 
+> `llm-lint` 的 [LLM006](https://github.com/pgy763/llm-lint/blob/main/docs/rules.md#llm006) 专门找 `produces` 里少了 charset 的 SSE 接口，一条命令列出所有漏网的。
+
 ## 环境
 
 | 组件 | 版本 |

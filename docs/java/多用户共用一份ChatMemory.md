@@ -111,6 +111,8 @@ void memoryIsIsolatedPerUser() {
 
 **第四条：把「会话标识从哪来」写进接口签名，而不是从 `ThreadLocal` 里摸。** 用 `@MemoryId` 显式传，和虚拟密钥那套 `AccessContext` 是同一个道理：隐式上下文在换线程、异步回调里失效时不出声。
 
+> 静态检查能直接指出这类共享：`llm-lint` 的 [LLM002](https://github.com/pgy763/llm-lint/blob/main/docs/rules.md#llm002) 找「按类型注入 `ChatMemory`、多个用户共用一个实例」，扫一遍全仓库就知道有没有。
+
 ## 环境
 
 | 组件 | 版本 |
