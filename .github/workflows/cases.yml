@@ -1,0 +1,38 @@
+name: cases
+
+on:
+  push:
+    paths:
+      - 'cases/**'
+      - '.github/workflows/cases.yml'
+  pull_request:
+    paths:
+      - 'cases/**'
+      - '.github/workflows/cases.yml'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      # 十条坑的复现测试：不联网、不需要 API key
+      - name: Run pitfall cases
+        working-directory: cases
+        run: mvn -B -ntp test
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pitfall-cases-report
+          path: cases/target/surefire-reports/
+          retention-days: 7
